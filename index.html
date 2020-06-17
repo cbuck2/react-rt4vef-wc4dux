@@ -1,0 +1,337 @@
+<head>
+	<link rel="stylesheet" href="https://unpkg.com/@progress/kendo-theme-bootstrap@latest/dist/all.css">
+	</link>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+	<style>
+		body {
+			position: relative;
+		}
+
+		html,
+		body {
+			height: 100%;
+			background-color: #fff;
+			font-family: 'Open Sans', sans-serif;
+		}
+
+    strong {
+      color: #343a40;
+      font-size: 15px;
+    }
+
+    b {
+      color: #343a40;
+      font-size: 15px;
+    }
+
+		.card {
+			position: absolute;
+			top: 100px;
+			left: 720px;
+			text-align: center;
+			align-content: center;
+			z-index: 1;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: 0.3s;
+			width: 270px;
+			height: 500px;
+		}
+
+		my-app {
+
+			display: block;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			min-height: 80px;
+			box-sizing: border-box;
+			padding: 30px;
+		}
+
+		/* width */
+		::-webkit-scrollbar {
+			width: 5px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+			background: #DFE7EC;
+			border-radius: 10px;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+			background: silver;
+			border-radius: 10px;
+		}
+
+		@keyframes k-loading-animation {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.timeline img {
+			max-width: 100%;
+			height: auto;
+			box-shadow: none !important;
+		}
+
+		.introduction-to-chat-date {
+			font-size: 12px;
+			color: gray;
+			margin-left: 115px;
+		}
+
+		.introduction-to-chat {
+			font-size: 25px !important;
+			color: #2b556d !important;
+			text-align: center;
+			margin-left: 0px;
+		}
+
+		.k-timestamp {
+			visibility: hidden;
+			height: 0px;
+		}
+
+
+		.unum-conversation-wrapper {
+			height: 100%;
+		}
+
+		.unum-conversation-wrapper .k-chat {
+			background: #F7F9FB url('https://hosted-machinelogic-io.s3.amazonaws.com/phoenix-poc/bg-clouds%402x.png') no-repeat center top;
+			overflow-x: unset;
+			overflow-y: unset;
+			font-family: 'Open Sans', sans-serif;
+			height: 100%;
+		}
+
+    .k-chat .k-message-group {
+      max-width: 100% !important;
+    }
+
+    .k-chat .k-message-time {
+      top: 100%;
+      color: gray;
+      margin-top: 5px;
+    }
+
+    .k-chat .k-message-group:not(.k-alt) .k-message-time {
+      left: 5%;
+    }
+
+    .k-chat .k-message-group.k-alt .k-message-time {
+      right: 0%;
+    }
+
+    .k-chat .k-message {
+      width: 100%;
+    }
+
+    .k-chat .k-message-list {
+      overflow-y: scroll;
+      overflow-x: hidden
+    }
+
+    .k-chat .k-message-group:not(.k-alt) {
+      width: 100%;
+    }
+
+		.k-chat .k-bubble {
+			text-align: left;
+			background-color: #fff;
+			padding: 20px;
+			box-shadow: 0 6px 26px #DAE4E9;
+			border-radius: 0 30px 30px 30px !important;
+			font-size: 14px;
+			line-height: 24px;
+			color: #7A7A7A;
+			margin-bottom: 5px;
+			/* max-height: 280px;
+			overflow-y: auto; */
+		}
+
+		.k-chat .k-alt .k-bubble {
+			background-color: #0088BD;
+			border-radius: 30px 30px 0px 30px !important;
+			border-color: #0088BD;
+			padding: 20px 25px;
+		}
+
+		.k-chat .k-bubble p:last-child {
+			margin-bottom: 0;
+		}
+
+		.k-chat .k-bubble p img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.k-quick-replies {
+			width: 88%;
+			margin-left: 8%;
+			/* margin-right: auto; */
+		}
+
+		.k-quick-replies .k-quick-reply {
+			color: #0088BD;
+			border: solid 2px #0088BD;
+			background: #fff;
+			padding: 15px;
+			border-radius: 10px;
+			display: block;
+			text-align: center;
+			margin-bottom: 7px;
+      margin-left: 25px;
+      font-weight: bold;
+		}
+
+		.k-quick-replies .k-quick-reply:hover {
+			background: #0088BD;
+			border-color: #0088BD
+		}
+
+    .k-quick-reply {
+      margin-right: 0px;
+    }
+
+		.k-message-box {
+			box-shadow: 0 -3px 12px rgba(224, 231, 237, 0.7);
+		}
+
+		.k-message-group img {
+			box-shadow: 0 3px 6px rgba(224, 231, 237, 0.7);
+		}
+
+		.k-message-group:not(.k-alt)>.k-avatar {
+			top: 2px;
+		}
+
+		.k-chat .k-message-group {
+			max-width: 90%;
+		}
+
+		.k-chat .k-message-list-content {
+			padding: 16px 15px 5px 20px;
+		}
+
+		.k-message-box .k-button {
+			color: #AEC7D8;
+		}
+
+		.k-i-loading.k-example-loading {
+			font-size: 64px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: rgb(2, 117, 216);
+		}
+
+		.k-i-loading.k-example-loading::before,
+		.k-i-loading.k-example-loading::after {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: inline-block;
+			content: "";
+			box-sizing: inherit;
+			border-radius: 50%;
+			border-width: .05em;
+			border-style: solid;
+			border-color: currentColor;
+			border-top-color: transparent;
+			border-bottom-color: transparent;
+			background-color: transparent;
+		}
+
+		.k-icon.k-i-loading.k-example-loading::before,
+		.k-icon.k-i-loading::after {
+			content: "";
+		}
+
+		.k-i-loading.k-example-loading::before {
+			margin-top: -0.5em;
+			margin-left: -0.5em;
+			width: 1em;
+			height: 1em;
+			animation: k-loading-animation .7s linear infinite;
+		}
+
+		.k-i-loading.k-example-loading::after {
+			margin-top: -0.25em;
+			margin-left: -0.25em;
+			width: .5em;
+			height: .5em;
+			animation: k-loading-animation reverse 1.4s linear infinite;
+		}
+
+		.example-wrapper {
+			min-height: 280px;
+			align-content: flex-start;
+		}
+
+		.example-wrapper p,
+		.example-col p {
+			margin: 20px 0 10px;
+		}
+
+		.example-wrapper p:first-child,
+		.example-col p:first-child {
+			margin-top: 0;
+		}
+
+		.example-col {
+			display: inline-block;
+			vertical-align: top;
+			padding-right: 20px;
+			padding-bottom: 20px;
+		}
+
+		.example-config {
+			margin: 0 0 20px;
+			padding: 20px;
+			background-color: rgba(0, 0, 0, .03);
+			border: 1px solid rgba(0, 0, 0, .08);
+		}
+
+		.event-log {
+			margin: 0;
+			padding: 0;
+			max-height: 100px;
+			overflow-y: auto;
+			list-style-type: none;
+			border: 1px solid rgba(0, 0, 0, .08);
+			background-color: white;
+		}
+
+		.event-log li {
+			margin: 0;
+			padding: .3em;
+			line-height: 1.2em;
+			border-bottom: 1px solid rgba(0, 0, 0, .08);
+		}
+
+		.event-log li:last-child {
+			margin-bottom: -1px;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<my-app>
+		<span class="k-icon k-i-loading"></span>
+	</my-app>
+</body>

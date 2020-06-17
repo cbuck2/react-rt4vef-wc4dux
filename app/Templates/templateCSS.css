@@ -1,0 +1,96 @@
+.dollar-icon {
+  font-size: 25px;
+  color: #bdbbbb;
+  margin-top: 4px;
+  margin-left: 2px;
+}
+
+.gray-circle {
+  height: 35px;
+  width: 35px;
+  background-color: #ededed;
+  border-radius: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.claim-title {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 8px;
+  border-bottom: 1.5px solid;
+  border-color: #d8e6eb;
+  color: #525252;
+  margin-top: 12px;
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+.link-line {
+  border-bottom: solid;
+  border-color: #d8e6eb;
+  width: 35px;
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Author: Christina */
+.separation-line {
+  border-bottom: 2px solid;
+  border-color: #d8e6eb;
+  width: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Author: Christina */
+.dropdown-line {
+  border-bottom: .5px solid;
+  border-color: #d8e6eb;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.claim-description {
+  font-style: italic;
+  font-size: 15px;
+}
+
+.claim-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #007CB7;
+    font-size: 14px;
+    padding: inherit
+}
+
+.link-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #007CB7;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+.k-card { 
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 6px 26px #DAE4E9;
+  border-radius: 30px 30px 30px 30px !important;
+  font-size: 16px;
+  line-height: 24px;
+  color: #7A7A7A;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 10px;
+}

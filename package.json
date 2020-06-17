@@ -1,0 +1,29 @@
+{
+  "name": "ey8oat.run",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@progress/kendo-react-buttons": "3.14.0",
+    "@progress/kendo-react-conversational-ui": "3.14.0",
+    "@progress/kendo-react-dateinputs": "3.14.0",
+    "@progress/kendo-react-dialogs": "3.14.0",
+    "@progress/kendo-react-dropdowns": "3.14.0",
+    "@progress/kendo-react-intl": "3.14.0",
+    "marked": "0.8.2",
+    "prop-types": "15.7.2",
+    "react": "16.13.1",
+    "react-date-scroll": "^1.1.0",
+    "react-day-picker": "7.4.8",
+    "react-dom": "16.13.1",
+    "react-transition-group": "4.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-scripts": "latest"
+  }
+}
