@@ -21,13 +21,13 @@ export default function ImageLink(props) {
 
   return (
     <div id="imagelink" style={{paddingBottom: 0, padding: 0}} className="k-card">
-          <div style={{height: 80, overflow: 'hidden', width: '100%', marginBottom: 10, borderRadius: '30px 30px 0px 0px'}}>
+          <div style={{height: 100, overflow: 'hidden', width: '100%', marginBottom: 10, borderRadius: '30px 30px 0px 0px'}}>
             <div style={{marginLeft: 0}} dangerouslySetInnerHTML={props.data.imagehtml} />
           </div>
           {
               props.data.message.linkInfo.map((link, i) => (
                 <div style={{paddingLeft: 15, paddingRight: 5, paddingBottom: 15}} key={i}>
-                  <div className="claim-button" style={{textAlign: 'left'}}>
+                  <div className="link-button" style={{textAlign: 'left'}}>
                     <a 
                       onClick={() => {
                         setModalInfo({
@@ -37,7 +37,8 @@ export default function ImageLink(props) {
                         toggleDialog(!visibleDialog);
                       }}
                     >{link.linktitle}</a>
-                    <p style={{}}>{link.linkdescription}</p>
+                    <br/>
+                    <span style={{}}>{link.linkdescription}</span>
                   </div>
                 </div>
               ))

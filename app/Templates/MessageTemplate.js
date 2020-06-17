@@ -1,3 +1,5 @@
+///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
+
 import React, { useState } from "react";
 import * as marked from "marked";
 import { DatePicker } from "@progress/kendo-react-dateinputs";
@@ -10,11 +12,17 @@ import MultiMessage from "./MultiMessage";
 import ClaimMessage from "./ClaimMessage";
 import ImageLink from "./ImageLink";
 import TextAndImage from "./TextAndImage";
+import PaymentDetails from "./PaymentDetails";
+import PaymentDeductions from "./PaymentDeductions";
+import RecentPayments from "./RecentPayments";
+import IconReply from "./IconReply";
+///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
 
 // An override of the message renderer to allow markdown and other content styling
 export default function MessageTemplate(props) {
   let message = props.item;
 
+  ///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
   //Changes data on date Author: Anish
   const handleDateChange = event => {
     message.dateresponse = message.dateFormatter(event.target.value);
@@ -27,14 +35,15 @@ export default function MessageTemplate(props) {
           if (messageArr[i + 1].text.toLowerCase() == "not returning") {
             break;
           }
-          messageArr[i + 1].text =
-            message.dateFormatter(event.target.value);
+          messageArr[i + 1].text = message.dateFormatter(event.target.value);
           message.setMessageState(messageArr);
         }
       }
     }
   };
+  ///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
 
+  ///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
   //Author: Anish
   //activated when drop down changes
   const handleDropdownChange = event => {
@@ -51,6 +60,7 @@ export default function MessageTemplate(props) {
       }
     }
   };
+  ///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
 
   // parse markdown language
   let parser = marked.setOptions({});
@@ -87,7 +97,7 @@ export default function MessageTemplate(props) {
     case "timeline":
       return <Timeline link={message.timeline_image_link} />;
       break;
-
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
     case "dropdown": //Author: Anish
       return (
         <div className="k-bubble">
@@ -106,7 +116,9 @@ export default function MessageTemplate(props) {
         </div>
       );
       break;
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
 
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
     case "datepicker":
       return (
         <div className="k-bubble">
@@ -126,6 +138,7 @@ export default function MessageTemplate(props) {
         </div>
       );
       break;
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
 
     case "textandimage":
       const imagehtml = { __html: message.rich_text };
@@ -144,10 +157,51 @@ export default function MessageTemplate(props) {
       break;
 
     case "claimmessage":
+      const data = {
+        title_icon: message.title_icon[0].url,
+        title: message.title,
+        statuses: message.statusData,
+        description: message.description
+      };
       const imagehtml = { __html: message.statusimage };
-      return <ClaimMessage data={{ message: message, imagehtml: imagehtml }} />;
+      return <ClaimMessage data={data} />;
       break;
 
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, TOP
+    case "paymentdeductions":
+      const data = {
+        description: { __html: message.deduction_description },
+        linkInfo: message.linkInfo
+      };
+      return <PaymentDeductions data={data} />;
+      break;
+
+    case "recentpayments":
+      const data = {
+        description: { __html: message.recent_payments_description },
+        linkInfo: message.linkInfo
+      };
+      return <RecentPayments data={data} />;
+      break;
+
+    case "paymentdetails":
+      const data = {
+        description: { __html: message.details_description },
+        payPeriod: { __html: message.pay_period },
+        related: { __html: message.related_to }
+      };
+      return <PaymentDetails data={data} />;
+      break;
+
+    case "iconreply":
+      const data = {
+        imagehtml: message.icon[0].url,
+        iconTitle: { __html: message.icon_title },
+        iconText: { __html: message.icon_text }
+      };
+      return <IconReply data={data} />;
+      break;
+    ///////////////////////////////////////////////////////////////AUTHOR: ANISH, BOTTOM
     case "reply":
       return <Reply htmlToinsert={htmlToinsert} />;
       break;

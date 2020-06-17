@@ -7,7 +7,7 @@ export default function TextAndImage(props) {
       <br/>
       <div style={{textAlign: 'center'}} dangerouslySetInnerHTML={props.data.imagehtml} />
       
-    </div> 
+    </div>
 
   )
 }

@@ -67,7 +67,8 @@
     outline: none;
     color: #007CB7;
     font-size: 14px;
-    padding: inherit
+    padding: inherit;
+    text-align: left;
 }
 
 .link-button {
